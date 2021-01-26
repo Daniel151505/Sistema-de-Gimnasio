@@ -11,7 +11,12 @@ export class AppComponent {
   title = 'sistemaGimnasio';
 
   constructor(public auth: AngularFireAuth) {
+
+    this.auth.user.subscribe((usuario) => {
+      console.log(usuario)
+    })
   }
+  
   login() {
     this.auth.signInWithEmailAndPassword('prueba@gmail.com','123456789');
   }
