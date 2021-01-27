@@ -17,7 +17,7 @@
         </div>
         
         <div class="text-center">
-            <button type="submit" [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingresar</button>
+            <button type="submit" (click)=ingresar() [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingresar</button>
         </div>
         
      
