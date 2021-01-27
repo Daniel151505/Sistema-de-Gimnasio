@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
 
  formularioLogin!: FormGroup;
 
-  constructor(private creadorFormulario: FormBuilder ) { }
+  constructor(private creadorFormulario: FormBuilder, private auth: AngularFireAuth ) { }
 
   ngOnInit(): void {
 
@@ -21,6 +22,13 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
+  }
+
+  ingresar(){
+    this.auth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.password)
+    .then((usuario)=>{
+      console.log(usuario)
+    })
   }
 
 }
