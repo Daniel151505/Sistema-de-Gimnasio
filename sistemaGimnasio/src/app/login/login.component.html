@@ -27,9 +27,19 @@
             <button type="submit" (click)=ingresar() [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingresar</button>
         </div>
         
-        <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
-          {{textoError}}
-        </div>
-
     </form>
+
+    <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
+        {{textoError}}
+    </div>
+    
+    <ngx-spinner
+        bdColor = "rgba(0, 0, 0, 0.8)"
+        size = "large" 
+        color = "#fff" 
+        type = "square-jelly-box" 
+        [fullScreen] = "true">
+        <p style="color: white" > Ingresando al Sistema... </p>
+    </ngx-spinner>
+
 </div>
