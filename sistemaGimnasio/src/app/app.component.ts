@@ -14,6 +14,13 @@ export class AppComponent {
 
   constructor(public auth: AngularFireAuth) {
 
+    this.auth.user.subscribe((usuario) => {
+      setTimeout(() => {
+         this.cargando = false;
+         this.usuario = usuario;
+      }, 2000);
+    })
+
   }
   
   login() {
