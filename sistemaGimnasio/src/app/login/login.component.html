@@ -9,6 +9,10 @@
         <div class="mb-3">
           <label for="email" class="form-label">Correo</label>
           <input type="email" placeholder="Ingresa tu Correo" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <div *ngIf="formularioLogin.controls['email'].invalid && formularioLogin.controls['email'].dirty" class="alert alert-danger" role="alert">
+           <span *ngIf="formularioLogin.controls['email'].errors?.required">Correo es requerido</span> 
+           <span *ngIf="formularioLogin.controls['email'].errors?.email">Correo no es Valido</span>
+          </div>
         </div>
 
         <div class="mb-3">
