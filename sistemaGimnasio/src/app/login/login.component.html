@@ -13,13 +13,16 @@
 
         <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
-          <input type="password" placeholder="Ingresa tu contraseña" formControlName="password" class="form-control" id="password">
+          <input type="password" (keyUp.enter)="ingresar()" placeholder="Ingresa tu contraseña" formControlName="password" class="form-control" id="password">
         </div>
         
         <div class="text-center">
             <button type="submit" (click)=ingresar() [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingresar</button>
         </div>
         
-     
+        <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
+          Por favor revisa que los datos esten correctos
+        </div>
+
     </form>
 </div>
