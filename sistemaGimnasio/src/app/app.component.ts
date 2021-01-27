@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,11 @@ import firebase from 'firebase/app';
 })
 export class AppComponent {
   title = 'sistemaGimnasio';
+  usuario: any;
+  cargando:boolean = true
 
   constructor(public auth: AngularFireAuth) {
 
-    this.auth.user.subscribe((usuario) => {
-      console.log(usuario)
-    })
   }
   
   login() {
