@@ -7,10 +7,16 @@ import { AngularFirestore } from '@angular/fire/firestore'
   styleUrls: ['./listado-cliente.component.scss']
 })
 export class ListadoClienteComponent implements OnInit {
+  cliente: any [] = new Array<any>();
 
   constructor(private db:AngularFirestore) { }
 
   ngOnInit(): void {
+
+  this.db.collection('clientes').valueChanges().subscribe((resultado)=>{
+    this.cliente = resultado;
+  })
+
   }
 
 }
