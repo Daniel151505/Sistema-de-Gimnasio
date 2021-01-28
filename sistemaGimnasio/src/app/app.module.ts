@@ -13,6 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ListadoClienteComponent } from './listado-cliente/listado-cliente.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { ListadoClienteComponent } from './listado-cliente/listado-cliente.compo
     NgxSpinnerModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [AngularFireAuth],
+  providers: [
+    AngularFireAuth,
+    AngularFirestore
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
