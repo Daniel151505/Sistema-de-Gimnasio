@@ -20,12 +20,5 @@ export class AppComponent {
     })
 
   }
-  
-  login() {
-    this.auth.signInWithEmailAndPassword('prueba@gmail.com','123456789');
-  }
-  logout() {
-    this.auth.signOut();
-  }
 
 }
