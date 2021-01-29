@@ -19,11 +19,16 @@ export class AgregarClienteComponent implements OnInit {
       correo: ['', Validators.compose([
         Validators.required, Validators.email
       ])],
-      cedula: [''],
+      DNI: [''],
       fechaNacimiento: ['',Validators.required],
       telefono: [''],
       imgUrl: ['', Validators.required]
     })
+  }
+
+  agregar(){
+    console.log(this.formularioCliente.value)
+
   }
 
 }
