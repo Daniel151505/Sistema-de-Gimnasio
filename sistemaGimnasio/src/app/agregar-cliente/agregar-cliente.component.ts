@@ -12,6 +12,7 @@ export class AgregarClienteComponent implements OnInit {
 
   formularioCliente!: FormGroup
   porcentajeSubida:any = 0;
+  urlImagen:string = '';
 
   constructor(private fb: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore ) { }
 
@@ -31,6 +32,8 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   agregar(){
+
+    this.formularioCliente.value.imgUrl = this.urlImagen
     console.log(this.formularioCliente.value)
     this.db.collection('clientes').add(this.formularioCliente.value).then((termino)=>{
       console.log('Registro Creado')
@@ -39,7 +42,7 @@ export class AgregarClienteComponent implements OnInit {
 
   subirImagen(evento: any){
 
-    if(evento.target.files.lenght > 0){
+    if(evento.target.files.length > 0){
         let nombre = new Date().getTime().toString()
         let archivo = evento.target.files[0]
         let extension = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'))
@@ -51,7 +54,7 @@ export class AgregarClienteComponent implements OnInit {
     
         console.log('imagen subida')
         referencia.getDownloadURL().subscribe((url)=>{
-          console.log(url)
+          this.urlImagen= url
         })
     
         })
