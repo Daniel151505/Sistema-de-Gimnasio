@@ -32,28 +32,34 @@ export class AgregarClienteComponent implements OnInit {
 
   agregar(){
     console.log(this.formularioCliente.value)
+    this.db.collection('clientes').add(this.formularioCliente.value).then((termino)=>{
+      console.log('Registro Creado')
+    })
   }
 
   subirImagen(evento: any){
 
-    let nombre = new Date().getTime().toString()
-    let archivo = evento.target.files[0]
-    let extension = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'))
-    let ruta = 'clientes/' + nombre + extension
-    const referencia = this.storage.ref(ruta)
-    const tarea = referencia.put(archivo)
-
-    tarea.then((objeto)=>{
-
-    console.log('imagen subida')
-    referencia.getDownloadURL().subscribe((url)=>{
-      console.log(url)
-    })
-
-    })
-    tarea.percentageChanges().subscribe((porcentaje)=>{
-        this.porcentajeSubida= porcentaje;
-    })
+    if(evento.target.files.lenght > 0){
+        let nombre = new Date().getTime().toString()
+        let archivo = evento.target.files[0]
+        let extension = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'))
+        let ruta = 'clientes/' + nombre + extension
+        const referencia = this.storage.ref(ruta)
+        const tarea = referencia.put(archivo)
+    
+        tarea.then((objeto)=>{
+    
+        console.log('imagen subida')
+        referencia.getDownloadURL().subscribe((url)=>{
+          console.log(url)
+        })
+    
+        })
+        tarea.percentageChanges().subscribe((porcentaje)=>{
+            this.porcentajeSubida= porcentaje;
+        })
+    }
+    
 
   }
 
