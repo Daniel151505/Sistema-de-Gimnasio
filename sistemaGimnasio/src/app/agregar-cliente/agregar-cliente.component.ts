@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +11,7 @@ export class AgregarClienteComponent implements OnInit {
 
   formularioCliente!: FormGroup
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private storage: AngularFireStorage ) { }
 
   ngOnInit(): void {
     this.formularioCliente = this.fb.group({
