@@ -14,13 +14,15 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ListadoClienteComponent } from './listado-cliente/listado-cliente.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EncabezadoComponent,
-    ListadoClienteComponent
+    ListadoClienteComponent,
+    AgregarClienteComponent
   ],
   imports: [
     BrowserModule,
