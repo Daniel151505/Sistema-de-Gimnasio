@@ -1,53 +1,53 @@
 <div class="container mt-5">
-    <form action="">
+    <form [formGroup]="formularioCliente" action="">
 
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Agregue el nombre">
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Agregue el nombre">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Apellido</label>
-                    <input type="text" class="form-control" placeholder="Agregue el apellido">
+                    <input type="text" class="form-control" formControlName="apellido" placeholder="Agregue el apellido">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Correo</label>
-                    <input type="text" class="form-control" placeholder="Agregue un correo">
+                    <input type="text" class="form-control" formControlName="correo" placeholder="Agregue un correo">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label for="">Cedula</label>
-                    <input type="text" class="form-control" placeholder="Agregue una cedula">
+                    <label for="">DNI</label>
+                    <input type="text" class="form-control" formControlName="DNI" placeholder="Agregue el DNI">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" placeholder="Agregue Fecha de Nacimiento">
+                    <input type="date" class="form-control" formControlName="fechaNacimiento" placeholder="Agregue Fecha de Nacimiento">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Telefono</label>
-                    <input type="tel" class="form-control" placeholder="Agregue un telefono">
+                    <input type="tel" class="form-control" formControlName="telefono" placeholder="Agregue un telefono">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Imagen</label>
-                    <input type="file" class="form-control" placeholder="Agregue su imagen">
+                    <input type="file" class="form-control" formControlName="imgUrl" placeholder="Agregue su imagen">
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
         </div>
 
             <div class="col-sm-4 mt-3">
-                <button class="btn btn-primary">Agregar</button>
+                <button class="btn btn-primary"  (click)="agregar()">Agregar</button>
             </div>
     </form>
 </div>
