@@ -29,6 +29,14 @@ export class AgregarClienteComponent implements OnInit {
 
   agregar(){
     console.log(this.formularioCliente.value)
+  }
+
+  subirImagen(evento: any){
+    let archivo = evento.target.files[0]
+    let ruta = 'clientes/imagen1.png'
+    const referencia = this.storage.ref(ruta)
+    const tarea = referencia.put(archivo)
+
 
   }
 
