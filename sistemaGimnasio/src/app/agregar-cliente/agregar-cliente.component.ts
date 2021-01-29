@@ -41,8 +41,13 @@ export class AgregarClienteComponent implements OnInit {
     let ruta = 'clientes/' + nombre + extension
     const referencia = this.storage.ref(ruta)
     const tarea = referencia.put(archivo)
+
     tarea.then((objeto)=>{
+
     console.log('imagen subida')
+    referencia.getDownloadURL().subscribe((url)=>{
+      console.log(url)
+    })
 
     })
     tarea.percentageChanges().subscribe((porcentaje)=>{
