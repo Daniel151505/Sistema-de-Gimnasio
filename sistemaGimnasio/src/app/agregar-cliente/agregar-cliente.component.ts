@@ -34,6 +34,7 @@ export class AgregarClienteComponent implements OnInit {
   agregar(){
 
     this.formularioCliente.value.imgUrl = this.urlImagen
+    this.formularioCliente.value.fechaNacimiento = new Date(this.formularioCliente.value.fechaNacimiento)
     console.log(this.formularioCliente.value)
     this.db.collection('clientes').add(this.formularioCliente.value).then((termino)=>{
       console.log('Registro Creado')
