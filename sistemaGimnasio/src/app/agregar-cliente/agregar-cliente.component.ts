@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AgregarClienteComponent implements OnInit {
 
   formularioCliente!: FormGroup
+  porcentajeSubida:any = 0;
 
   constructor(private fb: FormBuilder, private storage: AngularFireStorage ) { }
 
@@ -36,7 +37,13 @@ export class AgregarClienteComponent implements OnInit {
     let ruta = 'clientes/imagen1.png'
     const referencia = this.storage.ref(ruta)
     const tarea = referencia.put(archivo)
+    tarea.then((objeto)=>{
+    console.log('imagen subida')
 
+    })
+    tarea.percentageChanges().subscribe((porcentaje)=>{
+        this.porcentajeSubida= porcentaje;
+    })
 
   }
 
