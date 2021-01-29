@@ -15,6 +15,7 @@ export class AgregarClienteComponent implements OnInit {
   constructor(private fb: FormBuilder, private storage: AngularFireStorage ) { }
 
   ngOnInit(): void {
+
     this.formularioCliente = this.fb.group({
       nombre: ['',Validators.required],
       apellido: ['',Validators.required],
@@ -33,8 +34,11 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   subirImagen(evento: any){
+
+    let nombre = new Date().getTime().toString()
     let archivo = evento.target.files[0]
-    let ruta = 'clientes/imagen1.png'
+    let extension = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'))
+    let ruta = 'clientes/' + nombre + extension
     const referencia = this.storage.ref(ruta)
     const tarea = referencia.put(archivo)
     tarea.then((objeto)=>{
