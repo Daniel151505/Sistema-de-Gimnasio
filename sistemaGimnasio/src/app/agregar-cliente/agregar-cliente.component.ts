@@ -41,23 +41,6 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   subirImagen(evento: any){
-<<<<<<< HEAD
-=======
-
-    let nombre = new Date().getTime().toString()
-    let archivo = evento.target.files[0]
-    let extension = archivo.name.toString().substring(archivo.name.toString().lastIndexOf('.'))
-    let ruta = 'clientes/' + nombre + extension
-    const referencia = this.storage.ref(ruta)
-    const tarea = referencia.put(archivo)
-
-    tarea.then((objeto)=>{
-
-    console.log('imagen subida')
-    referencia.getDownloadURL().subscribe((url)=>{
-      console.log(url)
-    })
->>>>>>> 993f1b5ebba238fa10d00f2235d2c5923f4e29f5
 
     if(evento.target.files.length > 0){
         let nombre = new Date().getTime().toString()
