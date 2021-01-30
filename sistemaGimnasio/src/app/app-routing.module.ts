@@ -8,7 +8,7 @@ const routes: Routes = [
     path: 'listado-cliente', component: ListadoClienteComponent
   },
   {
-    path: 'agregar-cliente', component: AgregarClienteComponent
+    path: 'agregar-cliente/:clienteID', component: AgregarClienteComponent
   }
 ];
 
